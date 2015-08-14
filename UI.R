@@ -46,9 +46,18 @@ shinyUI(fluidPage(
     tabsetPanel(id="tabset",
       tabPanel("Scatterplots",
         h2("Scatterplot of Patient-level CAHPS Measures"),
-        p(class="text-small", "This tab creates scatterplot combinations to explore the relationship between different
-          CAHPS measures. In addition, the scatterplots can be facetted by patient characeristics (i.e. patient age category) or different
-          health plans by selecting the appropriate category under 'Facet Wrap Variable'."),
+        p(class="text-small", "The Consumer Assessment of Health Providers and Systems (CAHPS) survey is designed to measure
+                 patient experience with various aspects of healthcare in the United States (i.e. Hospitals, Insurance Plans, Clinicians, etc.). Within
+                 the CAHPS survey, questions are grouped into 'composites' to measure domains such as 'Getting Timely Care', 
+                 'Overall Provider of Rating', and other domains. These composite scores are reported on a linear 0-100 scale.
+                  This R shiny application allows the user to explore patient-level CAHPS data using various tools. For example,
+                  if you were interested in a looking at the relationship between the 'Provider Communication' composite and the
+                  'Getting Timely Care' composite, you could select these two measures using the box on the left to generate a scatterplot.
+                  The different data exploration tools are organized as different tabs in this application (i.e. Scatterplots, Correlation Matrix).
+                  Play around with the CAHPS data, and have fun! If you're interested, additional information about CAHPS can be
+                  found ",
+          a(href="https://www.cahps.ahrq.gov/",
+            target="_blank", "here.")),
         hr(),
         plotOutput("scatter", height="600px", width="1000px")
       ),
@@ -56,7 +65,7 @@ shinyUI(fluidPage(
       tabPanel("Density Overlay Plots",
         h2("Density Plot(s) of Patient-level CAHPS Measures"),
         p(class="text-small", "This tab generates the density distribution for different CAHPS measures. The user can select
-          additional CAHPS measures in the 'Additional CAHPS Measures' section to simultaneously view the density distribution for multiple CAHPS measures."),
+          additional CAHPS measures using the box to the left to simultaneously view the density distribution for multiple CAHPS measures."),
         hr(),
         plotOutput("density", height="600px", width="1000px")
       ),
